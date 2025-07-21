@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فروشگاه من</title>
+    <style>
+        body { font-family: sans-serif; background: #f8f9fa; margin: 0; padding: 0; }
+        header { background: #28a745; color: white; padding: 20px; text-align: center; }
+        h1 { margin: 0; }
+        .container { display: flex; flex-wrap: wrap; justify-content: center; padding: 20px; }
+        .product { background: white; border: 1px solid #ddd; border-radius: 10px; margin: 10px; width: 200px; padding: 15px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .product h3 { color: #28a745; }
+        button { background: #28a745; color: white; border: none; padding: 8px 12px; margin-top: 10px; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #218838; }
+        #cart { background: white; border-radius: 10px; padding: 20px; max-width: 400px; margin: 20px auto; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        ul { list-style: none; padding: 0; }
+        footer { background: #343a40; color: white; text-align: center; padding: 10px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>فروشگاه آنلاین من</h1>
+</header>
+
+<div class="container">
+    <div class="product">
+        <h3>کفش ورزشی</h3>
+        <p>قیمت: 1500 افغانی</p>
+        <button onclick="addToCart('کفش ورزشی', 1500)">افزودن به سبد خرید</button>
+    </div>
+
+    <div class="product">
+        <h3>تی‌شرت اسپرت</h3>
+        <p>قیمت: 800 افغانی</p>
+        <button onclick="addToCart('تی‌شرت اسپرت', 800)">افزودن به سبد خرید</button>
+    </div>
+
+    <div class="product">
+        <h3>کلاه بیسبال</h3>
+        <p>قیمت: 500 افغانی</p>
+        <button onclick="addToCart('کلاه بیسبال', 500)">افزودن به سبد خرید</button>
+    </div>
+
+    <div class="product">
+        <h3>کیف مدرسه</h3>
+        <p>قیمت: 2500 افغانی</p>
+        <button onclick="addToCart('کیف مدرسه', 2500)">افزودن به سبد خرید</button>
+    </div>
+</div>
+
+<div id="cart">
+    <h2>🛒 سبد خرید</h2>
+    <ul id="cart-items"></ul>
+    <p><strong>جمع کل: <span id="total">0</span> افغانی</strong></p>
+</div>
+
+<footer>
+    <p>© فروشگاه من - 2025</p>
+</footer>
+
+<script>
+    let total = 0;
+    function addToCart(name, price) {
+        const item = document.createElement('li');
+        item.innerText = `${name} - ${price} افغانی`;
+        document.getElementById('cart-items').appendChild(item);
+        total += price;
+        document.getElementById('total').innerText = total;
+    }
+</script>
+
+</body>
+</html>
